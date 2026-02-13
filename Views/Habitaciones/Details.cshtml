@@ -1,0 +1,43 @@
+@model SistemaHotel.Models.Habitacion
+
+@{
+    ViewData["Title"] = "Detalles de Habitación";
+}
+
+<h1>Detalles de la Habitación</h1>
+
+<div>
+    <hr />
+    <dl class="row">
+        <dt class="col-sm-3">Número de Habitación</dt>
+        <dd class="col-sm-9">@Model.Numero</dd>
+        
+        <dt class="col-sm-3">Tipo</dt>
+        <dd class="col-sm-9">@Model.Tipo</dd>
+        
+        <dt class="col-sm-3">Capacidad</dt>
+        <dd class="col-sm-9">@Model.Capacidad persona(s)</dd>
+        
+        <dt class="col-sm-3">Precio por Noche</dt>
+        <dd class="col-sm-9">$@Model.PrecioPorNoche</dd>
+        
+        <dt class="col-sm-3">Estado</dt>
+        <dd class="col-sm-9">
+            @if (Model.Disponible)
+            {
+                <span class="badge bg-success">Disponible</span>
+            }
+            else
+            {
+                <span class="badge bg-danger">Ocupada</span>
+            }
+        </dd>
+        
+        <dt class="col-sm-3">Descripción</dt>
+        <dd class="col-sm-9">@Model.Descripcion</dd>
+    </dl>
+</div>
+<div>
+    <a asp-action="Edit" asp-route-id="@Model.Id" class="btn btn-warning">Editar</a>
+    <a asp-action="Index" class="btn btn-secondary">Volver a la lista</a>
+</div>
